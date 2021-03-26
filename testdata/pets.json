@@ -1,0 +1,29 @@
+{
+    "pets": [
+        {
+            "name": "Purrs loud",
+            "species": "cat",
+            "favFoods": [
+                "wet food",
+                "dry food",
+                "any food"
+            ],
+            "birthYear": 2016
+        },
+        {
+            "name": "Barksalot",
+            "species": "dog",
+            "birthYear": 2008
+        },
+        {
+            "name": "Meowsalot",
+            "species": "cat",
+            "favFoods": [
+                "tuna",
+                "catnip",
+                "celery"
+            ],
+            "birthYear": 2012
+        }
+    ]
+}

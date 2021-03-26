@@ -1,0 +1,50 @@
+# This is an example goreleaser.yaml file with some sane defaults.
+# Make sure to check the documentation at http://goreleaser.com
+# Run locally with: goreleaser --rm-dist --snapshot --skip-publish
+project_name: uri
+before:
+  hooks:
+    - go mod tidy
+    - go mod download
+builds:
+- binary: '{{ .ProjectName }}'
+  main: ./main.go
+  env:
+    - CGO_ENABLED=0
+  ldflags:
+    - -s -w -X main.gitCommit={{.Commit}}
+    - -a -extldflags "-static"
+  goos:
+      - windows
+      - linux
+      - darwin
+  goarch:
+      - amd64
+archives:
+- replacements:
+    darwin: macOS
+    windows: win
+    amd64: 64-bit
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .ProjectName }}_{{ .Tag }}"
+nfpms:
+  -
+    package_name: uri
+    vendor: Luca Sepe
+    homepage: https://github.com/lucasepe/uri/
+    maintainer: Luca Sepe <luca.sepe@gmail.com>
+    description: Resolves URI Templates expressions as specified in RFC 6570.
+    license: MIT
+    replacements:
+      amd64: 64-bit
+    formats:
+      - deb
+      - rpm
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
