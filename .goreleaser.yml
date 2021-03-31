@@ -15,11 +15,24 @@ builds:
     - -s -w -X main.gitCommit={{.Commit}}
     - -a -extldflags "-static"
   goos:
-      - windows
-      - linux
-      - darwin
+    - windows
+    - linux
+    - darwin
   goarch:
-      - amd64
+    - arm
+    - arm64
+    - amd64
+  goarm:
+    - 7
+  ignore:
+    - goos: darwin
+      goarch: arm
+    - goos: darwin
+      goarch: arm64
+    - goos: windows
+      goarch: arm
+    - goos: windows
+      goarch: arm64  
 archives:
 - replacements:
     darwin: macOS

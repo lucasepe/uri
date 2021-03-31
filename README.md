@@ -1,5 +1,8 @@
 # URI
 
+## Are you tired to build, concat, replace URL(s) (via shell scripts sed/awk/tr) from your awesome commandline pipeline? 
+### Well! here is the missing piece: `uri`!
+
 ```
          _            _  
 o  / / _|     URI      |_ 
@@ -73,7 +76,7 @@ This will create the executable under your $GOPATH/bin directory.
 If you don't want to compile the source code yourself, [here you can find the executables](https://github.com/lucasepe/uri/releases/latest) for:
 
 - MacOS
-- Linux
+- Linux (amd64, arm7, arm64)
 - Windows
 
 ## Credits
